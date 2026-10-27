@@ -61,10 +61,7 @@ async def read_root(request: Request):
     """
     Serve the index.html template.
     """
-    return templates.TemplateResponse(
-    request=request,
-    name="index.html"
-    )
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post("/add", response_model=OperationResponse, responses={400: {"model": ErrorResponse}})
 async def add_route(operation: OperationRequest):
