@@ -5,3 +5,7 @@ __pycache__/
 .coverage
 .pytest_cache
 htmlcov
+# Environment configuration and generated logs
+.env
+logs/
+*.log
