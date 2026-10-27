@@ -18,7 +18,7 @@ def test_hello_world(page, fastapi_server):
     
     # Use an assertion to check that the text within the first <h1> tag is exactly "Hello World".
     # If the text does not match, the test will fail.
-    assert page.inner_text('h1') == 'Hello World'
+    expect(page.locator('h1')).to_have_text('Hello World')
 
 @pytest.mark.e2e
 def test_calculator_add(page, fastapi_server):
@@ -70,4 +70,4 @@ def test_calculator_divide_by_zero(page, fastapi_server):
     # Use an assertion to check that the text within the result div (with id 'result') is exactly
     # "Error: Cannot divide by zero!". This verifies that the application handles division by zero
     # gracefully and displays the correct error message to the user.
-    assert page.inner_text('#result') == 'Error: Cannot divide by zero!'
+    expect(page.locator('#result')).to_have_text('Error: Cannot divide by zero!')
